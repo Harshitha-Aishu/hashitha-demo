@@ -40,8 +40,8 @@ pipeline {
                     nexusArtifactDownloader(
                         artifacts: [
                             [
-                                groupId: 'mass',
-                                artifactId: 'class',
+                                groupId: 'demo',
+                                artifactId: 'mass',
                                 version: '2.2',
                                 classifier: '',
                                 type: 'war',
