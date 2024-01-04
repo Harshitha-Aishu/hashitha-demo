@@ -22,7 +22,7 @@ pipeline {
                 type: 'war']],
                 credentialsId: 'nexus',
                 groupId: 'demo',
-                nexusUrl: '172.31.45.132',
+                nexusUrl: '172.31.45.132:8081',
                 nexusVersion: 'nexus3',
                 protocol: 'http',
                 repository: 'new-repo-store',
