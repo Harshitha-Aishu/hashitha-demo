@@ -5,7 +5,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>demo</groupId>
-  <artifactId>mass</artifactId>
+  <artifactId>class</artifactId>
   <version>2.2</version>
   <packaging>war</packaging>
 
@@ -29,7 +29,7 @@
   </dependencies>
 
   <build>
-    <finalName>abhi</finalName>
+    <finalName>class</finalName>
     <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
       <plugins>
         <plugin>
