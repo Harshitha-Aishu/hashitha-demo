@@ -16,9 +16,13 @@ pipeline {
         }
         stage ("deploy-to-nexus") {
             steps {
-                nexusArtifactUploader credentialsId: 'nexus',
+                nexusArtifactUploader artifacts: [[artifactId: 'satish',
+                classifier: 'satish-war',
+                file: 'target/satish.war',
+                type: 'war']],
+                credentialsId: 'nexus',
                 groupId: 'demo',
-                nexusUrl: '172.31.45.132', 
+                nexusUrl: '172.31.45.132',
                 nexusVersion: 'nexus3',
                 protocol: 'http',
                 repository: 'new-repo-store',
