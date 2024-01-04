@@ -18,7 +18,7 @@ pipeline {
             steps {
                 nexusArtifactUploader artifacts: [[artifactId: 'mass',
                 classifier: '',
-                file: 'target/abhi.war',
+                file: 'target/${vishwa}.war',
                 type: 'war']],
                 credentialsId: 'nexus',
                 groupId: 'demo',
