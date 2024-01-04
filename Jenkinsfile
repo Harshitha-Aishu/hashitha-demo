@@ -57,7 +57,7 @@ pipeline {
                     tomcatDeploy(
                         credentialsId: tomcatCredentialsId,
                         url: serverUrl,
-                        path: '/manager/demo',
+                        path: '/manager/class',
                         war: "target/${warFileName}",
                         version: "2.2"
                     )
