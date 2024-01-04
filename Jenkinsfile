@@ -17,8 +17,8 @@ pipeline {
         stage ("deploy-to-nexus") {
             steps {
                 nexusArtifactUploader artifacts: [[artifactId: 'satish',
-                classifier: 'satish-war',
-                file: 'target/satish.war',
+                classifier: '',
+                file: 'target/tej.war',
                 type: 'war']],
                 credentialsId: 'nexus',
                 groupId: 'demo',
