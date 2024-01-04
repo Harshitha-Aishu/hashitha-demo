@@ -29,5 +29,40 @@ pipeline {
                 version: '2.2'
             }
         }
+        stage("deployToTomcat") {
+            steps {
+                script {
+                    def serverUrl = 'http://15.229.35.169:8080' // Change to your Tomcat server URL
+                    def tomcatCredentialsId = 'tomcat' // Set your Tomcat credentials ID
+                    def warFileName = "class-1.0.6.war"
+                    
+                    // Download the artifact from Nexus
+                    nexusArtifactDownloader(
+                        artifacts: [
+                            [
+                                groupId: 'mass',
+                                artifactId: 'class',
+                                version: '1.0.6',
+                                classifier: '',
+                                type: 'war',
+                                target: "target/${warFileName}"
+                            ]
+                        ],
+                        nexusVersion: 'nexus3',
+                        nexusUrl: 'http://18.229.160.68:8081',
+                        credentialsId: 'nexus'
+                    )
+
+                    // Deploy the downloaded artifact to Tomcat
+                    tomcatDeploy(
+                        credentialsId: tomcatCredentialsId,
+                        url: serverUrl,
+                        path: '/manager/text',
+                        war: "target/${warFileName}",
+                        version: "1.0.6"
+                    )
+                }
+            }
+        }
     }
 }
