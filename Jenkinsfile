@@ -34,7 +34,7 @@ pipeline {
                 script {
                     def serverUrl = 'http://15.229.35.169:8080' // Change to your Tomcat server URL
                     def tomcatCredentialsId = 'tomcat' // Set your Tomcat credentials ID
-                    def warFileName = "class-1.0.6.war"
+                    def warFileName = "mass-2.2.war"
                     
                     // Download the artifact from Nexus
                     nexusArtifactDownloader(
@@ -42,7 +42,7 @@ pipeline {
                             [
                                 groupId: 'mass',
                                 artifactId: 'class',
-                                version: '1.0.6',
+                                version: '2.2',
                                 classifier: '',
                                 type: 'war',
                                 target: "target/${warFileName}"
@@ -59,7 +59,7 @@ pipeline {
                         url: serverUrl,
                         path: '/manager/text',
                         war: "target/${warFileName}",
-                        version: "1.0.6"
+                        version: "2.2"
                     )
                 }
             }
