@@ -14,5 +14,16 @@ pipeline {
                 sh "mvn install"
             }
         }
+        stage ("deploy-to-nexus") {
+            steps {
+                nexusArtifactUploader credentialsId: 'nexus',
+                groupId: 'demo',
+                nexusUrl: '172.31.45.132', 
+                nexusVersion: 'nexus3',
+                protocol: 'http',
+                repository: 'new-repo-store',
+                version: '1.1.1'
+            }
+        }
     }
 }
