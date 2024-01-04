@@ -33,7 +33,7 @@ pipeline {
             steps {
                 script {
                     def serverUrl = 'http://15.229.35.169:8080' // Change to your Tomcat server URL
-                    def tomcatCredentialsId = 'robot' // Set your Tomcat credentials ID
+                    def tomcatCredentialsId = 'admin' // Set your Tomcat credentials ID
                     def warFileName = "mass-2.2.war"
                     
                     // Download the artifact from Nexus
